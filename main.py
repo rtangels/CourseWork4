@@ -13,22 +13,25 @@ def main():
         vacancies = recruter.format_vacancies()
         json_saver = JSONSaver(keyword)
         json_saver.add_vacancies(vacancies)
-
+#Работа с командами для пользователя
     while True:
         command = input(f"""\nВведите обозначение команды:
 1: Сортировать вакансии по возрастанию зарплаты и вывести их на экран
 2: Вывести на экран топ  N вакансий
 3: Вывсти на экран вакансии с зарплатой в диапазоне
 exit: Выйти из программы\n""")
+    # Обработка команды 1:Сортировка вакансий
         if command == '1':
             data = json_saver.sorted_vacancies()
             for v in data:
                 print(v)
+    #Обработка команды 2: ТОП вакансий
         elif command == '2':
             number_vacancies = input('Введите количество входящих в ТОП вакансий\n')
             data = json_saver.sorted_vacancies()
             for r in json_saver.get_top_vacancies(data, int(number_vacancies)):
                 print(r)
+    #Обработка команды 3: Вывод на экран вакансий зарплаты в которых попадают в указанный дипазон
         elif command == '3':
             range = input ('Введите диапозон зарплат через дефис, например 10000-30000 \n')
             for v in json_saver.vacancies_by_salary_range(range):
