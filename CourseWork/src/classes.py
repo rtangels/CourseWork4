@@ -40,7 +40,7 @@ class HeadHunter(apiRecruiter):
       self.__params = {
           'text': keyword,
           'page': 0,
-          'per_page' : 20
+          'per_page' : 10
           
           ,
       }
@@ -121,7 +121,7 @@ class SuperJob(apiRecruiter):
         self.__params = {
             "keyword" : keyword,
             "page" : 0,
-            "count" : 100
+            "count" : 10
         }
         self.__vacancies = []
 
